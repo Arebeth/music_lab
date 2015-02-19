@@ -1,0 +1,5 @@
+Artist.create({:name => "Iron and Wine"})
+Artist.create({:name => "Otis Redding"})
+Artist.create({:name => "Simon and Garfunkel"})
+Artist.create({:name => "Elvis"})
+Artist.create({:name => "She & Him"})

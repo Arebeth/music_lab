@@ -1,5 +1,6 @@
 require 'sinatra'  
 require 'sinatra/activerecord'
+require './models/artist'
 require 'pry'
 require "better_errors"
 require 'pg'
@@ -9,15 +10,21 @@ configure :development do
   BetterErrors.application_root = __dir__
 end
 
-set :conn, PG.connect(dbname: 'sinatrasql')
-
-before do 
-  @conn = settings.conn
-end
-
-settings.conn
-
 get '/' do 
-  "Hello world"
+  redirect '/artists'
 end
-  
+
+get '/artists' do 
+  @artist = Artist.all
+  erb :index
+end
+
+get '/artists/new' do 
+  @artist = Artist.create
+  erb :new
+end
+
+get '/artists/:id' do 
+  @artist = Artist.find_by(:name)
+  erb :new
+end
