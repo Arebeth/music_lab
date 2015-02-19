@@ -1,4 +1,5 @@
 require 'sinatra'  
+require 'sinatra/activerecord'
 require 'pry'
 require "better_errors"
 require 'pg'
