@@ -1,0 +1,77 @@
+Before you start coding, look up the answers the following questions and place them inline below:
+
+_What are some books that Martin Fowler has written?_
+	-NoSQL Distilled
+	-Domain-Specific Languages
+	-Refactoring
+	-Patterns of Enterprise Application Architecture
+	-UML Distilled
+	-Analysis Patterns
+	-Planning Extreme Programming
+	-Signature Series
+		Service Design Patterns
+		Continuous Delivery
+		Refactoring HTML
+		xUnit Test Patterns
+		Continuous Integration
+		Refactoring Databases
+		Refactoring to Patterns
+		Enterprise Integration Patterns
+		Beyond Software Architecture
+
+_What's the difference between "active record" and "ActiveRecord"?_
+	The active record pattern is an approach to accessing data in a database.
+	It is an implementation of the Active Record pattern which itself is a description of an Object Relational Mapping system.
+
+_Is the "active record" pattern an ORM?_
+	Yes. Active Record gives us several mechanisms, the most important being the ability to:
+	-Represent models and their data.
+	-Represent associations between these models.
+	-Represent inheritance hierarchies through related models.
+	-Validate models before they get persisted to the database.
+	-Perform database operations in an object-oriented fashion.
+
+_Why might we want to use an ORM in our code?_
+	- It connects the objects to tables in a relational database management system. 
+	- It prevents writing SQL statements & reduces code
+
+_What gem do we need to allow Sinatra to interact with ActiveRecord?
+	- sinatra-activerecord gem
+
+_What is rake?
+	Rake is a standalone Ruby utility, a controller, an internal DSL, programmed in the Ruby language. Rake can help with dependency models, synthesized tasks, custom build routines and debugging the build script. 
+
+_What is a database migration?
+	You can think of each migration as being a new 'version' of the database. Migrations are a convenient way to alter your database schema over time in a consistent and easy way. 
+
+_What command can we use to create a new ActiveRecord migration?
+	rake db:create_migration NAME=<name>
+
+**_What command runs our existing migrations?
+	rake db:migrate
+
+_What commands reverses a migration?
+	db:rollback
+
+**_What command tells us which migrations have run and which have not?
+	
+**_Which class do we have to extend if we want to create a new model?
+	subclass the ActiveRecord::Base	class
+
+_What's the difference between ActiveRecord's .new and .create methods?
+	.new - object is instantiated, not saved
+	.create - object is instantiated AND saved
+
+**_What's the difference between ActiveRecord's .find and .find_by methods?
+	.find(*args) - returns all records with matching conditions, otherwise returns RecordNotFound. Usually retrieves a row.
+	.find_by(*args) - returns first record matching conditions, otherwise returns nil. 
+
+_What's the difference between ActiveRecord's .find_by and .where methods?
+	- find_by - used as a helper to find something within a column, returns 1 item
+	- .where - used to find most specific items, use when "find" and "find_by" aren't enough. returns all matching records.
+
+_What ActiveRecord method do we use to change a value in the database?
+	user.update(name: 'Dave')
+
+_What ActiveRecord method do we use to remove an item from the database?_
+	user.destroy
